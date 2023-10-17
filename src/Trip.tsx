@@ -1,18 +1,13 @@
 import * as styles from "./Trip.css";
+import * as models from "./models";
 
-type Props = {
-  id: number;
-  origin: string;
-  destination: string;
-  startDate: string;
-  endDate: string;
-};
+type Props = models.Trip;
 
 export function Trip(props: Props) {
   return (
     <div className={styles.trip}>
       <span>{`${props.origin} -> ${props.destination}`}</span>
-      <span>{`${props.startDate} -> ${props.endDate}`}</span>
+      <span>{`${props.startDate.toLocaleDateString()} -> ${props.endDate.toLocaleDateString()}`}</span>
     </div>
   );
 }
