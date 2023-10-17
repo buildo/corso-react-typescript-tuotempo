@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 import { getTrips } from "./api";
 import { Trip } from "./Trip";
 import * as styles from "./Trips.css";
+import * as models from "./models";
 
 export function Trips() {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const [trips, setTrips] = useState<any[]>([]);
+  const [trips, setTrips] = useState<models.Trip[]>([]);
 
   useEffect(() => {
     getTrips().then(setTrips);
