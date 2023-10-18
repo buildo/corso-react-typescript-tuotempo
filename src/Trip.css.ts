@@ -14,3 +14,9 @@ export const trip = style({
   padding: "0 8px",
   borderRadius: "4px",
 });
+
+export const tripStatus = {
+  Requested: style({ background: "lightgray" }),
+  Booked: style({ background: "lightgreen" }),
+  CheckedIn: style({ background: "orange" }),
+};
