@@ -2,6 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTrip } from "./api";
 import { deleteTripStyle } from "./DeleteTripButton.css";
 import { match } from "ts-pattern";
+import { Button } from "design-system/Button";
 
 interface DeleteTripButtonProps {
   tripId: string;
@@ -25,12 +26,12 @@ export function DeleteTripButton({ tripId }: DeleteTripButtonProps) {
     .exhaustive();
 
   return (
-    <button
+    <Button
       onClick={() => deleteTripMutation.mutateAsync(tripId)}
       disabled={deleteTripMutation.isPending}
       className={deleteTripStyle}
     >
       {label}
-    </button>
+    </Button>
   );
 }
