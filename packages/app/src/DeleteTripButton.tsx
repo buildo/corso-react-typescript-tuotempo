@@ -1,12 +1,14 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTrip } from "./api";
 import { AsyncButton } from "design-system/AsyncButton";
+import { useTranslation } from "react-i18next";
 
 interface DeleteTripButtonProps {
   tripId: string;
 }
 
 export function DeleteTripButton({ tripId }: DeleteTripButtonProps) {
+  const { t } = useTranslation();
   const queryClient = useQueryClient();
   const deleteTripMutation = useMutation({
     mutationKey: ["deleteTrip", tripId],
@@ -21,10 +23,10 @@ export function DeleteTripButton({ tripId }: DeleteTripButtonProps) {
       action={() => deleteTripMutation.mutateAsync(tripId)}
       variant="negative"
       labels={{
-        error: "Delete Error ❌!",
-        pending: "Deleting ⏳",
-        success: "Deleted ✅",
-        idle: "Delete",
+        error: t("Trips.deleteButton.error"),
+        pending: t("Trips.deleteButton.pending"),
+        success: t("Trips.deleteButton.success"),
+        idle: t("Trips.deleteButton.idle"),
       }}
     />
   );
