@@ -1,7 +1,8 @@
 import { style } from "@vanilla-extract/css";
 
 export const trip = style({
-  display: "flex",
+  display: "grid",
+  gridTemplateColumns: "1fr 1fr minmax(140px, max-content)",
   backgroundColor: "lightgray",
   alignItems: "center",
   justifyContent: "space-between",
