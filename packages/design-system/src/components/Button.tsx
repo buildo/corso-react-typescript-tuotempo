@@ -1,7 +1,16 @@
 import { ComponentProps } from "react";
-import { buttonStyle } from "./Button.css";
+import { buttonStyle, buttonVariantStyle } from "./Button.css";
 import clsx from "clsx";
 
-export function Button(props: ComponentProps<"button">) {
-  return <button {...props} className={clsx(props.className, buttonStyle)} />;
+type Props = {
+  variant?: "regular" | "negative";
+} & ComponentProps<"button">;
+
+export function Button({ variant = "regular", className, ...props }: Props) {
+  return (
+    <button
+      {...props}
+      className={clsx(className, buttonStyle, buttonVariantStyle[variant])}
+    />
+  );
 }

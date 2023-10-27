@@ -1,8 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteTrip } from "./api";
-import { deleteTripStyle } from "./DeleteTripButton.css";
-import { match } from "ts-pattern";
-import { Button } from "design-system/Button";
+import { AsyncButton } from "design-system/AsyncButton";
 
 interface DeleteTripButtonProps {
   tripId: string;
@@ -18,20 +16,16 @@ export function DeleteTripButton({ tripId }: DeleteTripButtonProps) {
     },
   });
 
-  const label = match(deleteTripMutation.status)
-    .with("error", () => "Delete Error ❌!")
-    .with("pending", () => "Deleting ⏳")
-    .with("success", () => "Deleted ✅")
-    .with("idle", () => "Delete")
-    .exhaustive();
-
   return (
-    <Button
-      onClick={() => deleteTripMutation.mutateAsync(tripId)}
-      disabled={deleteTripMutation.isPending}
-      className={deleteTripStyle}
-    >
-      {label}
-    </Button>
+    <AsyncButton
+      action={() => deleteTripMutation.mutateAsync(tripId)}
+      variant="negative"
+      labels={{
+        error: "Delete Error ❌!",
+        pending: "Deleting ⏳",
+        success: "Deleted ✅",
+        idle: "Delete",
+      }}
+    />
   );
 }
