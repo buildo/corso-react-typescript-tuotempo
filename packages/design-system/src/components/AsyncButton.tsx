@@ -1,13 +1,14 @@
 import { ComponentProps, useState } from "react";
-import { Button } from "..";
+import { Button } from "./Button";
+import { LocalizedString } from "../models";
 
 type Props = {
   action: () => Promise<unknown>;
   labels: {
-    success: string;
-    idle: string;
-    error: string;
-    pending: string;
+    success: LocalizedString;
+    idle: LocalizedString;
+    error: LocalizedString;
+    pending: LocalizedString;
   };
   variant?: ComponentProps<typeof Button>["variant"];
 };

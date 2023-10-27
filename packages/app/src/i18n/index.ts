@@ -3,6 +3,8 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import en from "./locales/en.json";
 import it from "./locales/it.json";
+import { MapLeafNodes } from "./utils";
+import { LocalizedString } from "design-system";
 
 export const defaultNS = "translation";
 
@@ -13,7 +15,7 @@ type Resources = {
   };
 };
 
-export const resources: Resources = {
+export const _resources: Resources = {
   en: {
     translation: en,
   },
@@ -21,6 +23,11 @@ export const resources: Resources = {
     translation: it,
   },
 };
+
+const resources = _resources as MapLeafNodes<
+  typeof _resources,
+  LocalizedString
+>;
 
 i18n
   .use(initReactI18next)
