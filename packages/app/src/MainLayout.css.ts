@@ -13,6 +13,7 @@ export const header = style({
   alignItems: "center",
   padding: "0 16px",
   flexShrink: 0,
+  justifyContent: "space-between",
 });
 
 export const main = style({

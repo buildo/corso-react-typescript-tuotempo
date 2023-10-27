@@ -1,0 +1,13 @@
+{
+  "MainLayout.Trips": "Trips",
+  "Trips.QueryLoading": "Loading...",
+  "Trips.QueryError": "Error while fetching trips!!",
+  "Trips.deleteButton.pending": "⏳ Deleting trip...",
+  "Trips.deleteButton.error": "💥 Error!",
+  "Trips.deleteButton.success": "✅ Trip deleted!",
+  "Trips.deleteButton.idle": "🗑 Delete trip",
+  "LanguageSelector.English": "🇬🇧 English",
+  "LanguageSelector.Italian": "🇮🇹 Italiano",
+  "Trip.info": "{{origin}} -> {{destination}} {{seatNumber}}",
+  "Trip.dates": "From {{startDate}} to {{endDate}}"
+}

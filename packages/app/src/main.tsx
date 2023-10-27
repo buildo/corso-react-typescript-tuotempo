@@ -8,6 +8,7 @@ import {
   QueryCache,
 } from "@tanstack/react-query";
 import "design-system/index.css";
+import "./i18n";
 
 const queryClient = new QueryClient({
   queryCache: new QueryCache({
